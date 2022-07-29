@@ -4,6 +4,10 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def new
+    @task = Task.new
+  end
+
   def create
     @task = Task.create
     redirect_to root_path, notice: 'New task added!'
