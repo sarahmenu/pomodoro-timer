@@ -6,18 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Task.destroy
+Task.destroy_all
 
 puts 'Creating task 1'
 task1 = Task.create(
   title: 'Work on new timer app',
-  status: 'Ongoing',
+  status: 'Ongoing...',
   notes: 'Finish the protoype on Figma'
 )
 
 puts 'Creating task 2'
 task2 = Task.create(
   title: 'Book flight for August trip',
-  status: 'Done',
+  status: 'Done !',
   notes: 'Depature 10/08, return 17/08'
 )

@@ -1,0 +1,9 @@
+<h3>Tasks </h3>
+<hr>
+<% @tasks.each do |task| %>
+  <h3><%= task.title %></h3>
+  <p><%= task.status %></p>
+  <%= link_to "Completed", task_path(task),  method: :patch %>
+  <%= link_to "Delete", task_path(task),  method: :delete %>
+<%end %>
+
