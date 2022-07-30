@@ -1,0 +1,41 @@
+<h3>Tasks </h3>
+<hr>
+<% @tasks.each do |task| %>
+  <h3><%= task.title %></h3>
+  <p><%= task.status %></p>
+  <%= link_to "Completed", task_path(task),  method: :patch %>
+  <%= link_to "Delete", task_path(task),  method: :delete %>
+<%end %>
+
+
+
+
+<br>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add a new task
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a new task</t></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <%= simple_form_for @task do |f| %>
+          <%= f.input :title %>
+          <%= f.input :notes, as: :text  %>
+          <%= f.button :submit, class: "btn btn-secondary" %>
+        <% end %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
