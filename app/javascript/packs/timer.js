@@ -5,7 +5,9 @@ export default class Timer {
       minutes: root.querySelector(".timer__part--minutes"),
       seconds: root.querySelector(".timer__part--seconds"),
       control: root.querySelector(".timer__btn--control"),
-      reset: root.querySelector(".timer__btn--reset"),
+      resetWorktime: root.querySelector(".timer__btn--resetwk"),
+      resetBreaktime: root.querySelector(".timer__btn--resetbk"),
+
     };
     this.interval = null;
     this.remainingSeconds = 1500;
@@ -24,10 +26,14 @@ export default class Timer {
 
     });
 
-    this.el.reset.addEventListener("click", () => {
+    this.el.resetBreaktime.addEventListener("click", () => {
+      this.remainingSeconds = 300;
+      this.updateInterfaceTime();
+    });
+
+    this.el.resetWorktime.addEventListener("click", () => {
       this.remainingSeconds = 1500;
       this.updateInterfaceTime();
-
     });
 
   }
@@ -77,16 +83,23 @@ export default class Timer {
 
   static getHTML() {
     return `
-      <span class="timer__part timer__part--minutes"> 25
-      </span>
-      <span class="timer__part">:</span>
-      <span class="timer__part timer__part--seconds"> 00
-      </span>
+      <button type="button" class="timer__btn timer__btn--resetwk timer__btn--start">
+      <span class="material-icons">laptop</span>
+      </button>
+
+      <button type="button" class="timer__btn timer__btn--resetbk timer__btn--start">
+        <span class="material-icons">coffee</span>
+      </button>
+
+      <div id="timer__diplay">
+        <span class="timer__part timer__part--minutes">25</span>
+        <span class="timer__part">:</span>
+        <span class="timer__part timer__part--seconds">00
+        </span>
+      </div>
+
       <button type="button" class="timer__btn timer__btn--control timer__btn--start">
         <span class="material-icons">play_arrow</span>
-      </button>
-        <button type="button" class="timer__btn timer__btn--reset">
-        <span class="material-icons">timer</span>
       </button>
     `;
   }
