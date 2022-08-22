@@ -13,3 +13,9 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "bootstrap"
+
+import Timer from './timer.js';
+
+new Timer(
+  document.querySelector('.timer')
+)
