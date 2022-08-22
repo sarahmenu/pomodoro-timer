@@ -83,10 +83,12 @@ export default class Timer {
 
   static getHTML() {
     return `
+      <p> Worktime</p>
       <button type="button" class="timer__btn timer__btn--resetwk timer__btn--start">
-      <span class="material-icons">laptop</span>
+        <span class="material-icons">laptop</span>
       </button>
 
+      <p> Breaktime</p>
       <button type="button" class="timer__btn timer__btn--resetbk timer__btn--start">
         <span class="material-icons">coffee</span>
       </button>
